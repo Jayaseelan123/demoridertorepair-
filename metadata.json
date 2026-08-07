@@ -1,0 +1,6 @@
+{
+  "name": "Ride N Repair",
+  "description": "Doorstep Bike & Car Repair Service Platform with instant booking, live mechanic tracking, verified mechanics, user/mechanic/admin dashboards, and payment flow.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
