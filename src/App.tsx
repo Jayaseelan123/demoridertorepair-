@@ -1,39 +1,30 @@
 import React, { useState } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { ServiceCategories } from './components/ServiceCategories';
-import { BrandShowcase } from './components/BrandShowcase';
-import { HowItWorks } from './components/HowItWorks';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { PricingSection } from './components/PricingSection';
-import { ReviewsSection } from './components/ReviewsSection';
-import { FAQSection } from './components/FAQSection';
-import { CitiesSection } from './components/CitiesSection';
 import { Footer } from './components/Footer';
 import { LiveTrackingModal } from './components/LiveTrackingModal';
 import { BookingWizardModal } from './components/BookingWizardModal';
-import { UserDashboard } from './components/dashboards/UserDashboard';
 import { MechanicDashboard } from './components/dashboards/MechanicDashboard';
 import { AdminDashboard } from './components/dashboards/AdminDashboard';
-import { AboutContactModal } from './components/AboutContactModal';
-import { CheckCircle2, AlertCircle } from 'lucide-react';
+import { HomePage, AboutPage, ServicesPage, PricingPage, ContactPage } from './pages/SitePages';
+import { CheckCircle2 } from 'lucide-react';
+
+type PageKey = 'home' | 'about' | 'services' | 'pricing' | 'contact';
 
 function AppContent() {
   const { role, toastMessage, activeTrackingBookingId } = useApp();
-  const [aboutModalState, setAboutModalState] = useState<{
-    isOpen: boolean;
-    tab: 'about' | 'contact';
-  }>({
-    isOpen: false,
-    tab: 'about',
-  });
+  const [activePage, setActivePage] = useState<PageKey>('home');
 
   const handleNavigateSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handlePageChange = (page: PageKey) => {
+    setActivePage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -49,30 +40,22 @@ function AppContent() {
       {/* Main Sticky Navbar Header */}
       <Header
         onNavigateSection={handleNavigateSection}
+        onNavigatePage={handlePageChange}
         onOpenAuthModal={() => {
           const el = document.getElementById('dashboard');
           if (el) el.scrollIntoView({ behavior: 'smooth' });
         }}
-        onOpenAboutModal={() => setAboutModalState({ isOpen: true, tab: 'about' })}
       />
 
       {/* Dynamic Role View Switching: Customer Landing vs Mechanic Panel vs Admin Panel */}
       {role === 'customer' && (
-        <main>
-          <Hero onExploreClick={() => handleNavigateSection('services')} />
-          <ServiceCategories />
-          <BrandShowcase />
-          <HowItWorks />
-          <WhyChooseUs />
-          <PricingSection />
-          
-          {/* Embedded Customer Dashboard View */}
-          <UserDashboard />
-
-          <ReviewsSection />
-          <FAQSection />
-          <CitiesSection />
-        </main>
+        <>
+          {activePage === 'home' && <HomePage />}
+          {activePage === 'about' && <AboutPage />}
+          {activePage === 'services' && <ServicesPage />}
+          {activePage === 'pricing' && <PricingPage />}
+          {activePage === 'contact' && <ContactPage />}
+        </>
       )}
 
       {role === 'mechanic' && (
@@ -88,19 +71,13 @@ function AppContent() {
       )}
 
       {/* Footer */}
-      <Footer />
+      <Footer onNavigatePage={handlePageChange} />
 
       {/* Modals & Overlays */}
       <BookingWizardModal />
 
       {activeTrackingBookingId && <LiveTrackingModal />}
 
-      {aboutModalState.isOpen && (
-        <AboutContactModal
-          initialTab={aboutModalState.tab}
-          onClose={() => setAboutModalState({ isOpen: false, tab: 'about' })}
-        />
-      )}
     </div>
   );
 }

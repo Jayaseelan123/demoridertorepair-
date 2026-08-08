@@ -6,15 +6,17 @@ import {
   Mail,
   MapPin,
   ShieldCheck,
-  Heart,
-  Calendar,
   Instagram,
   Facebook,
   Twitter,
   Linkedin,
 } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigatePage?: (page: 'home' | 'about' | 'services' | 'pricing' | 'contact') => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
   const { openBookingWizard } = useApp();
 
   return (
@@ -57,11 +59,11 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="text-white font-bold text-sm uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-2 text-slate-300">
-              <li><a href="#hero" className="hover:text-blue-400 transition">Home</a></li>
-              <li><a href="#services" className="hover:text-blue-400 transition">Doorstep Services</a></li>
-              <li><a href="#how-it-works" className="hover:text-blue-400 transition">How It Works</a></li>
-              <li><a href="#pricing" className="hover:text-blue-400 transition">Pricing & Packages</a></li>
-              <li><a href="#cities" className="hover:text-blue-400 transition">Covered Cities</a></li>
+              <li><button onClick={() => onNavigatePage?.('home')} className="hover:text-blue-400 transition text-left">Home</button></li>
+              <li><button onClick={() => onNavigatePage?.('services')} className="hover:text-blue-400 transition text-left">Doorstep Services</button></li>
+              <li><button onClick={() => onNavigatePage?.('home')} className="hover:text-blue-400 transition text-left">How It Works</button></li>
+              <li><button onClick={() => onNavigatePage?.('pricing')} className="hover:text-blue-400 transition text-left">Pricing & Packages</button></li>
+              <li><button onClick={() => onNavigatePage?.('home')} className="hover:text-blue-400 transition text-left">Covered Cities</button></li>
             </ul>
           </div>
 
@@ -69,9 +71,9 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="text-white font-bold text-sm uppercase tracking-wider">Services</h4>
             <ul className="space-y-2 text-slate-300">
-              <li><button onClick={() => openBookingWizard({ vehicleType: 'bike' })} className="hover:text-blue-400 transition text-left">Petrol Bike General Service</button></li>
-              <li><button onClick={() => openBookingWizard({ vehicleType: 'bike' })} className="hover:text-blue-400 transition text-left">Engine Tuning & Pickup Care</button></li>
-              <li><button onClick={() => openBookingWizard({ vehicleType: 'bike' })} className="hover:text-blue-400 transition text-left">Doorstep Breakdown Assistance</button></li>
+              <li><button onClick={() => { onNavigatePage?.('services'); openBookingWizard({ vehicleType: 'bike' }); }} className="hover:text-blue-400 transition text-left">Petrol Bike General Service</button></li>
+              <li><button onClick={() => { onNavigatePage?.('services'); openBookingWizard({ vehicleType: 'bike' }); }} className="hover:text-blue-400 transition text-left">Engine Tuning & Pickup Care</button></li>
+              <li><button onClick={() => { onNavigatePage?.('services'); openBookingWizard({ vehicleType: 'bike' }); }} className="hover:text-blue-400 transition text-left">Doorstep Breakdown Assistance</button></li>
             </ul>
           </div>
 
