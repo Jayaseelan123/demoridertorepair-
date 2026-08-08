@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-slate-300 leading-relaxed max-w-sm">
-              India's premier doorstep bike and car repair platform. Verified mechanics, upfront transparent pricing, and 30-day service warranty delivered directly to your doorstep.
+              India's premier doorstep petrol bike service platform. Verified mechanics, upfront transparent pricing, and 30-day service warranty delivered directly to your doorstep.
             </p>
 
             {/* Emergency Hotline Box */}
@@ -69,11 +69,9 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="text-white font-bold text-sm uppercase tracking-wider">Services</h4>
             <ul className="space-y-2 text-slate-300">
-              <li><button onClick={() => openBookingWizard({ vehicleType: 'bike' })} className="hover:text-blue-400 transition text-left">Bike Maintenance</button></li>
-              <li><button onClick={() => openBookingWizard({ vehicleType: 'car' })} className="hover:text-blue-400 transition text-left">Car Periodic Service</button></li>
-              <li><button onClick={() => openBookingWizard({ vehicleType: 'car' })} className="hover:text-blue-400 transition text-left">Car AC Repair & Gas</button></li>
-              <li><button onClick={() => openBookingWizard({ vehicleType: 'car' })} className="hover:text-blue-400 transition text-left">Doorstep Battery Replacement</button></li>
-              <li><button onClick={() => openBookingWizard({ vehicleType: 'ev' })} className="hover:text-blue-400 transition text-left">Electric Vehicle (EV) Care</button></li>
+              <li><button onClick={() => openBookingWizard({ vehicleType: 'bike' })} className="hover:text-blue-400 transition text-left">Petrol Bike General Service</button></li>
+              <li><button onClick={() => openBookingWizard({ vehicleType: 'bike' })} className="hover:text-blue-400 transition text-left">Engine Tuning & Pickup Care</button></li>
+              <li><button onClick={() => openBookingWizard({ vehicleType: 'bike' })} className="hover:text-blue-400 transition text-left">Doorstep Breakdown Assistance</button></li>
             </ul>
           </div>
 

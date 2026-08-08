@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import {
   User,
-  Car,
   Bike,
   Wrench,
   Calendar,
@@ -38,10 +37,10 @@ export const UserDashboard: React.FC = () => {
 
   // Add vehicle modal
   const [showAddVehicle, setShowAddVehicle] = useState(false);
-  const [newVehType, setNewVehType] = useState<'bike' | 'car' | 'ev'>('car');
-  const [newVehBrand, setNewVehBrand] = useState('Tata');
-  const [newVehModel, setNewVehModel] = useState('Nexon');
-  const [newVehReg, setNewVehReg] = useState('KA-03-EV-1022');
+  const [newVehType, setNewVehType] = useState<'bike'>('bike');
+  const [newVehBrand, setNewVehBrand] = useState('Royal Enfield');
+  const [newVehModel, setNewVehModel] = useState('Classic 350');
+  const [newVehReg, setNewVehReg] = useState('KA-01-MJ-8821');
 
   // Selected Invoice Modal
   const [selectedInvoice, setSelectedInvoice] = useState<any>(null);
@@ -112,7 +111,7 @@ export const UserDashboard: React.FC = () => {
                 : 'text-slate-400 hover:text-white bg-slate-900'
             }`}
           >
-            <Car className="w-4 h-4" />
+            <Bike className="w-4 h-4" />
             <span>My Vehicles ({userVehicles.length})</span>
           </button>
 
@@ -273,7 +272,7 @@ export const UserDashboard: React.FC = () => {
                 >
                   <div className="flex items-center justify-between">
                     <div className="w-12 h-12 rounded-2xl bg-blue-600/20 text-blue-400 flex items-center justify-center">
-                      {v.type === 'bike' ? <Bike className="w-6 h-6" /> : <Car className="w-6 h-6" />}
+                      <Bike className="w-6 h-6" />
                     </div>
 
                     <button
@@ -449,12 +448,10 @@ export const UserDashboard: React.FC = () => {
               <label className="block text-slate-300 font-bold mb-1">Vehicle Type</label>
               <select
                 value={newVehType}
-                onChange={(e) => setNewVehType(e.target.value as any)}
+                onChange={(e) => setNewVehType(e.target.value as 'bike')}
                 className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5"
               >
-                <option value="bike">Bike / Scooter</option>
-                <option value="car">Car</option>
-                <option value="ev">EV Vehicle</option>
+                <option value="bike">Petrol Bike</option>
               </select>
             </div>
 

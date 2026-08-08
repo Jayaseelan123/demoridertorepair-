@@ -4,8 +4,6 @@ import { VEHICLE_BRANDS, SERVICES, COUPONS } from '../data/mockData';
 import { RazorpayModal } from './RazorpayModal';
 import {
   Bike,
-  Car,
-  Zap,
   CheckCircle2,
   ChevronRight,
   ChevronLeft,
@@ -35,7 +33,7 @@ export const BookingWizardModal: React.FC = () => {
   const [step, setStep] = useState<number>(1);
 
   // Form State
-  const [vehicleType, setVehicleType] = useState<'bike' | 'car' | 'ev'>(
+  const [vehicleType, setVehicleType] = useState<'bike'>(
     bookingPreselect.vehicleType || 'bike'
   );
   const [selectedBrand, setSelectedBrand] = useState<string>(
@@ -71,9 +69,7 @@ export const BookingWizardModal: React.FC = () => {
 
   if (!isBookingModalOpen) return null;
 
-  const brands = VEHICLE_BRANDS.filter(
-    (b) => vehicleType === 'ev' || b.type === vehicleType || b.type === 'both'
-  );
+  const brands = VEHICLE_BRANDS.filter((b) => b.type === 'bike');
 
   const services = SERVICES.filter((s) => s.category === vehicleType);
 
@@ -183,54 +179,18 @@ export const BookingWizardModal: React.FC = () => {
           {step === 1 && (
             <div className="space-y-5 animate-in fade-in">
               <div>
-                <label className="block text-slate-300 font-bold mb-2">Select Vehicle Type</label>
-                <div className="grid grid-cols-3 gap-3">
+                <label className="block text-slate-300 font-bold mb-2">Select Petrol Bike Type</label>
+                <div className="grid grid-cols-1 gap-3">
                   <button
                     type="button"
                     onClick={() => {
                       setVehicleType('bike');
                       setSelectedBrand('Royal Enfield');
                     }}
-                    className={`p-4 rounded-2xl border flex flex-col items-center space-y-2 transition ${
-                      vehicleType === 'bike'
-                        ? 'bg-blue-600/20 border-blue-500 text-blue-400 font-bold'
-                        : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
-                    }`}
+                    className="p-4 rounded-2xl border bg-blue-600/20 border-blue-500 text-blue-400 font-bold flex flex-col items-center space-y-2 transition"
                   >
                     <Bike className="w-6 h-6" />
-                    <span>Bike / Scooter</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setVehicleType('car');
-                      setSelectedBrand('Maruti Suzuki');
-                    }}
-                    className={`p-4 rounded-2xl border flex flex-col items-center space-y-2 transition ${
-                      vehicleType === 'car'
-                        ? 'bg-blue-600/20 border-blue-500 text-blue-400 font-bold'
-                        : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
-                    }`}
-                  >
-                    <Car className="w-6 h-6" />
-                    <span>Car</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setVehicleType('ev');
-                      setSelectedBrand('TVS');
-                    }}
-                    className={`p-4 rounded-2xl border flex flex-col items-center space-y-2 transition ${
-                      vehicleType === 'ev'
-                        ? 'bg-blue-600/20 border-blue-500 text-blue-400 font-bold'
-                        : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
-                    }`}
-                  >
-                    <Zap className="w-6 h-6" />
-                    <span>EV Vehicle</span>
+                    <span>Petrol Bike</span>
                   </button>
                 </div>
               </div>

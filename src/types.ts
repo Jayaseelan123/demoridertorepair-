@@ -1,10 +1,10 @@
-export type VehicleType = 'bike' | 'car' | 'ev';
+export type VehicleType = 'bike';
 
 export interface VehicleBrand {
   id: string;
   name: string;
   logo: string; // SVG or image URL
-  type: 'bike' | 'car' | 'both';
+  type: 'bike';
   popularModels: string[];
 }
 
@@ -41,7 +41,7 @@ export interface Mechanic {
   photo: string;
   rating: number;
   totalJobs: number;
-  specialization: ('bike' | 'car' | 'ev')[];
+  specialization: ('bike')[];
   experienceYears: number;
   status: 'available' | 'busy' | 'offline';
   currentLocation: {

@@ -3,18 +3,12 @@ import { useApp } from '../context/AppContext';
 import { VehicleType, ServiceItem } from '../types';
 import {
   Bike,
-  Car,
-  Zap,
   Clock,
   ShieldCheck,
   CheckCircle2,
   ChevronRight,
   Sparkles,
   Wrench,
-  Wind,
-  BatteryCharging,
-  Disc,
-  Paintbrush,
   Search,
 } from 'lucide-react';
 
@@ -41,14 +35,14 @@ export const ServiceCategories: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold backdrop-blur-md">
             <Wrench className="w-3.5 h-3.5" />
-            <span>Comprehensive Doorstep Auto Care</span>
+            <span>Doorstep Petrol Bike Care</span>
           </div>
           
           <h2 className="text-3xl md:text-4xl font-black tracking-tight text-white">
-            Our Doorstep Service Packages
+            Our Petrol Bike Service Packages
           </h2>
           <p className="text-sm md:text-base text-slate-400">
-            Certified mechanics brought to your doorstep with original OEM spare parts, transparent pricing, and 30-day service warranty.
+            Certified petrol-bike mechanics brought to your doorstep with genuine spare parts, transparent pricing, and a 30-day service warranty.
           </p>
 
           {/* Search & Category Filter Tabs */}
@@ -59,7 +53,7 @@ export const ServiceCategories: React.FC = () => {
               <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
               <input
                 type="text"
-                placeholder="Search services (e.g. AC, Oil, Denting)..."
+                placeholder="Search services (e.g. engine, chain, brake)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-xl pl-9 pr-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -88,31 +82,7 @@ export const ServiceCategories: React.FC = () => {
                 }`}
               >
                 <Bike className="w-3.5 h-3.5" />
-                <span>Bike Services</span>
-              </button>
-
-              <button
-                onClick={() => setActiveCategory('car')}
-                className={`px-4 py-2 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 ${
-                  activeCategory === 'car'
-                    ? 'bg-blue-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <Car className="w-3.5 h-3.5" />
-                <span>Car Services</span>
-              </button>
-
-              <button
-                onClick={() => setActiveCategory('ev')}
-                className={`px-4 py-2 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 ${
-                  activeCategory === 'ev'
-                    ? 'bg-blue-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <Zap className="w-3.5 h-3.5" />
-                <span>EV Services</span>
+                <span>Petrol Bike Services</span>
               </button>
             </div>
 
@@ -143,13 +113,7 @@ export const ServiceCategories: React.FC = () => {
                   
                   {/* Category Pill Badge */}
                   <div className="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-md text-blue-400 border border-slate-700/80 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md flex items-center space-x-1">
-                    {service.category === 'bike' ? (
-                      <Bike className="w-3 h-3" />
-                    ) : service.category === 'car' ? (
-                      <Car className="w-3 h-3" />
-                    ) : (
-                      <Zap className="w-3 h-3" />
-                    )}
+                    <Bike className="w-3 h-3" />
                     <span>{service.subCategory}</span>
                   </div>
 

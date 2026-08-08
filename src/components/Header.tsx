@@ -11,7 +11,6 @@ import {
   Calendar,
   PhoneCall,
   Sparkles,
-  Car,
   Bike,
   ShieldAlert,
 } from 'lucide-react';
@@ -113,7 +112,7 @@ export const Header: React.FC<HeaderProps> = ({
                 RIDE <span className="text-blue-500">N</span> REPAIR
               </span>
               <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold -mt-1">
-                Doorstep Auto Care
+                Doorstep Petrol Bike Care
               </span>
             </div>
           </div>

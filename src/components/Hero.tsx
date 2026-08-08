@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import {
   Bike,
-  Car,
-  Zap,
   Star,
   Clock,
   ShieldCheck,
@@ -25,15 +23,13 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
   const { selectedCity, openBookingWizard } = useApp();
 
   // Quick booking card internal form state
-  const [vehicleType, setVehicleType] = useState<'bike' | 'car' | 'ev'>('bike');
+  const [vehicleType, setVehicleType] = useState<'bike'>('bike');
   const [selectedBrand, setSelectedBrand] = useState<string>('Royal Enfield');
   const [selectedService, setSelectedService] = useState<string>('s-bike-1');
   const [userLocation, setUserLocation] = useState<string>(`${selectedCity}, Central Area`);
   const [preferredTime, setPreferredTime] = useState<string>('Today (Within 30 mins)');
 
-  const filteredBrands = VEHICLE_BRANDS.filter(
-    (b) => vehicleType === 'ev' || b.type === vehicleType || b.type === 'both'
-  );
+  const filteredBrands = VEHICLE_BRANDS.filter((b) => b.type === 'bike');
 
   const filteredServices = SERVICES.filter((s) => s.category === vehicleType);
 
@@ -72,12 +68,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
-              Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-400">Bike & Car Repair</span> At Your Doorstep
+              Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-400">Petrol Bike Service</span> At Your Doorstep
             </h1>
 
             {/* Subheading */}
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Book verified mechanics with 100% transparent pricing. Get instant repairs, periodic servicing, or breakdown assistance at your home or office.
+              Book verified mechanics with 100% transparent pricing. Get general service, engine tuning, or breakdown assistance for your petrol bike at home or office.
             </p>
 
             {/* Main CTA Buttons */}
@@ -167,47 +163,17 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
               </div>
 
               <form onSubmit={handleQuickBook} className="space-y-4 text-xs">
-                {/* 1. Vehicle Type Selector */}
+                {/* 1. Bike Selection */}
                 <div>
-                  <label className="block text-slate-300 font-semibold mb-2">1. Select Vehicle Type</label>
-                  <div className="grid grid-cols-3 gap-2">
+                  <label className="block text-slate-300 font-semibold mb-2">1. Select Petrol Bike</label>
+                  <div className="grid grid-cols-1 gap-2">
                     <button
                       type="button"
                       onClick={() => setVehicleType('bike')}
-                      className={`p-3 rounded-xl border flex flex-col items-center space-y-1 transition ${
-                        vehicleType === 'bike'
-                          ? 'bg-blue-600/20 border-blue-500 text-blue-400 font-bold'
-                          : 'bg-slate-800/60 border-slate-700/60 text-slate-400 hover:border-slate-600'
-                      }`}
+                      className="p-3 rounded-xl border bg-blue-600/20 border-blue-500 text-blue-400 font-bold flex items-center justify-center space-x-2 transition"
                     >
                       <Bike className="w-5 h-5" />
-                      <span>Bike / Scooter</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setVehicleType('car')}
-                      className={`p-3 rounded-xl border flex flex-col items-center space-y-1 transition ${
-                        vehicleType === 'car'
-                          ? 'bg-blue-600/20 border-blue-500 text-blue-400 font-bold'
-                          : 'bg-slate-800/60 border-slate-700/60 text-slate-400 hover:border-slate-600'
-                      }`}
-                    >
-                      <Car className="w-5 h-5" />
-                      <span>Car</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setVehicleType('ev')}
-                      className={`p-3 rounded-xl border flex flex-col items-center space-y-1 transition ${
-                        vehicleType === 'ev'
-                          ? 'bg-blue-600/20 border-blue-500 text-blue-400 font-bold'
-                          : 'bg-slate-800/60 border-slate-700/60 text-slate-400 hover:border-slate-600'
-                      }`}
-                    >
-                      <Zap className="w-5 h-5" />
-                      <span>EV Vehicle</span>
+                      <span>Petrol Bike</span>
                     </button>
                   </div>
                 </div>

@@ -59,7 +59,7 @@ export const AboutContactModal: React.FC<AboutContactModalProps> = ({
                 <div>
                   <h3 className="text-lg font-bold text-white">Ride N Repair Platform</h3>
                   <div className="text-[11px] text-blue-400 font-semibold">
-                    Doorstep Bike & Car Service Pioneer
+                    Doorstep Petrol Bike Service Pioneer
                   </div>
                 </div>
               </div>

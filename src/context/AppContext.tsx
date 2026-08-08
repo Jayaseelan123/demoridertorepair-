@@ -37,11 +37,11 @@ interface AppContextType {
   isBookingModalOpen: boolean;
   setIsBookingModalOpen: (open: boolean) => void;
   bookingPreselect: {
-    vehicleType?: 'bike' | 'car' | 'ev';
+    vehicleType?: 'bike';
     brand?: string;
     serviceId?: string;
   };
-  openBookingWizard: (preselect?: { vehicleType?: 'bike' | 'car' | 'ev'; brand?: string; serviceId?: string }) => void;
+  openBookingWizard: (preselect?: { vehicleType?: 'bike'; brand?: string; serviceId?: string }) => void;
   
   // Services Admin state
   servicesList: ServiceItem[];
@@ -69,15 +69,6 @@ const INITIAL_VEHICLES: Vehicle[] = [
     registrationNumber: 'KA-01-MJ-8821',
     fuelType: 'Petrol',
     year: 2022,
-  },
-  {
-    id: 'veh-2',
-    type: 'car',
-    brand: 'Hyundai',
-    model: 'Creta',
-    registrationNumber: 'KA-05-MN-9921',
-    fuelType: 'Petrol',
-    year: 2023,
   },
 ];
 
@@ -124,46 +115,6 @@ const INITIAL_BOOKINGS: ServiceBooking[] = [
     createdAt: '2026-08-06 10:15 AM',
     updatedAt: '2026-08-06 10:30 AM',
   },
-  {
-    id: 'RNR-77210',
-    userId: 'user-001',
-    userName: 'Anish Verma',
-    userPhone: '+91 98450 12345',
-    userEmail: 'anish.verma@example.com',
-    vehicle: {
-      id: 'veh-2',
-      type: 'car',
-      brand: 'Hyundai',
-      model: 'Creta',
-      registrationNumber: 'KA-05-MN-9921',
-    },
-    serviceIds: ['s-car-1', 's-car-2'],
-    serviceNames: ['Standard Car Periodic Service', 'Car AC Complete Service & Gas Refill'],
-    totalPrice: 3498,
-    location: {
-      address: 'Flat 402, Oakwood Apartments, Koramangala 5th Block',
-      city: 'Bengaluru',
-      pincode: '560095',
-      lat: 12.9352,
-      lng: 77.6245,
-    },
-    date: '2026-07-28',
-    timeSlot: '02:00 PM - 03:00 PM',
-    status: 'COMPLETED',
-    mechanicId: 'mech-102',
-    mechanic: MECHANICS[1],
-    payment: {
-      method: 'CARD',
-      transactionId: 'pay_K2l0B984z',
-      amount: 3498,
-      discount: 200,
-      finalAmount: 3298,
-      status: 'PAID',
-      paidAt: '2026-07-28 03:45 PM',
-    },
-    createdAt: '2026-07-27 06:00 PM',
-    updatedAt: '2026-07-28 04:00 PM',
-  },
 ];
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -197,7 +148,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [activeTrackingBookingId, setActiveTrackingBookingId] = useState<string | null>(null);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState<boolean>(false);
   const [bookingPreselect, setBookingPreselect] = useState<{
-    vehicleType?: 'bike' | 'car' | 'ev';
+    vehicleType?: 'bike';
     brand?: string;
     serviceId?: string;
   }>({});
@@ -235,7 +186,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     showToast('Vehicle removed successfully');
   };
 
-  const openBookingWizard = (preselect?: { vehicleType?: 'bike' | 'car' | 'ev'; brand?: string; serviceId?: string }) => {
+  const openBookingWizard = (preselect?: { vehicleType?: 'bike'; brand?: string; serviceId?: string }) => {
     if (preselect) {
       setBookingPreselect(preselect);
     } else {

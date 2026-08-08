@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useApp } from '../context/AppContext';
 import { VEHICLE_BRANDS } from '../data/mockData';
-import { Bike, Car, ChevronRight, ShieldCheck } from 'lucide-react';
+import { Bike, ChevronRight, ShieldCheck } from 'lucide-react';
 
 export const BrandShowcase: React.FC = () => {
   const { openBookingWizard } = useApp();
-  const [tab, setTab] = useState<'bike' | 'car'>('bike');
 
-  const brands = VEHICLE_BRANDS.filter((b) => b.type === tab || b.type === 'both');
+  const brands = VEHICLE_BRANDS.filter((b) => b.type === 'bike');
 
   return (
     <section className="py-16 bg-[#050505] text-white border-t border-white/5">
@@ -20,34 +19,11 @@ export const BrandShowcase: React.FC = () => {
               Supported Manufacturers
             </div>
             <h2 className="text-2xl md:text-3xl font-black text-white">
-              We Repair All Major Brands & Models
+              We Service All Major Petrol Bike Brands
             </h2>
             <p className="text-xs md:text-sm text-slate-400 mt-1">
-              Certified mechanics trained with genuine OEM spare parts for every vehicle brand
+              Certified petrol-bike mechanics trained with genuine OEM spare parts for every major bike brand.
             </p>
-          </div>
-
-          {/* Tab Filter */}
-          <div className="inline-flex p-1 rounded-2xl bg-[#0a0a0c] border border-white/10 shrink-0">
-            <button
-              onClick={() => setTab('bike')}
-              className={`px-5 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 ${
-                tab === 'bike' ? 'bg-blue-600 text-white shadow-lg' : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              <Bike className="w-4 h-4" />
-              <span>Bike Brands</span>
-            </button>
-
-            <button
-              onClick={() => setTab('car')}
-              className={`px-5 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 ${
-                tab === 'car' ? 'bg-blue-600 text-white shadow-lg' : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              <Car className="w-4 h-4" />
-              <span>Car Brands</span>
-            </button>
           </div>
         </div>
 
@@ -58,7 +34,7 @@ export const BrandShowcase: React.FC = () => {
               key={brand.id}
               onClick={() =>
                 openBookingWizard({
-                  vehicleType: tab,
+                  vehicleType: 'bike',
                   brand: brand.name,
                 })
               }

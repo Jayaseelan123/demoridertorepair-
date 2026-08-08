@@ -1,6 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { Bike, Car, Wind, Zap, CheckCircle2, ChevronRight, Sparkles } from 'lucide-react';
+import { Bike, CheckCircle2, ChevronRight, Sparkles } from 'lucide-react';
 
 export const PricingSection: React.FC = () => {
   const { openBookingWizard } = useApp();
@@ -8,8 +8,8 @@ export const PricingSection: React.FC = () => {
   const pricingPackages = [
     {
       id: 'pkg-bike',
-      title: 'Bike General Service',
-      tagline: 'Ideal for 2-wheelers up to 350cc',
+      title: 'Petrol Bike General Service',
+      tagline: 'Ideal for daily-use bikes and commuters',
       startingPrice: 450,
       originalPrice: 650,
       vehicleType: 'bike' as const,
@@ -22,60 +22,40 @@ export const PricingSection: React.FC = () => {
         'Front & Rear Brake Adjustment',
         'Spark Plug Check & Cleaning',
         '18-Point Full Safety Checkup',
-        'Free Doorstep Foam Wash',
       ],
     },
     {
-      id: 'pkg-car',
-      title: 'Car Periodic Service',
-      tagline: 'Recommended every 10,000 KM',
-      startingPrice: 1999,
-      originalPrice: 2800,
-      vehicleType: 'car' as const,
-      icon: Car,
+      id: 'pkg-tune',
+      title: 'Engine Tuning & Pickup Care',
+      tagline: 'Best for rough idling and low mileage',
+      startingPrice: 799,
+      originalPrice: 1100,
+      vehicleType: 'bike' as const,
+      icon: Bike,
       popular: true,
       inclusions: [
-        'Shell / Mobil Fully Synthetic Oil',
-        'New Oil Filter & Air Filter',
-        'Coolant & Brake Fluid Top-up',
-        '35-Point Digital Health Scan',
-        'Spark Plug & Battery Check',
-        'Brake Pad Cleaning & Bleeding',
-        'Interior Deep Vacuuming',
+        'Fuel System & Carburetor Cleaning',
+        'Tappet Clearance Adjustment',
+        'Spark Plug Replacement',
+        'Throttle & Cable Inspection',
+        'Silencer Carbon Clean Check',
       ],
     },
     {
-      id: 'pkg-ac',
-      title: 'Car AC Health & Gas Refill',
-      tagline: 'Chilling 100% cooling performance',
-      startingPrice: 1499,
-      originalPrice: 2200,
-      vehicleType: 'car' as const,
-      icon: Wind,
+      id: 'pkg-breakdown',
+      title: 'Breakdown Assistance',
+      tagline: 'Fast help for dead starts or flat tyres',
+      startingPrice: 299,
+      originalPrice: 450,
+      vehicleType: 'bike' as const,
+      icon: Bike,
       popular: false,
       inclusions: [
-        'R134a Genuine Refrigerant Refill',
-        'AC Cabin Filter Clean & Sanitization',
-        'Leakage Test via Pressure Gauge',
-        'Anti-Bacterial Duct Foam Spray',
-        'Condenser Coil High-Pressure Clean',
-      ],
-    },
-    {
-      id: 'pkg-ev',
-      title: 'EV Scooter & Car Service',
-      tagline: 'Specialized Electric Vehicle Care',
-      startingPrice: 599,
-      originalPrice: 899,
-      vehicleType: 'ev' as const,
-      icon: Zap,
-      popular: false,
-      inclusions: [
-        'BMS & Battery Pack Diagnostic Scan',
-        'BLDC Motor Controller Harness Test',
-        'Regenerative Braking Calibration',
-        'Thermal Cooling Circuit Inspection',
-        'Tyre Pressure & Brake Pad Check',
+        'Battery Jumpstart Service',
+        'Tubeless Puncture Fix',
+        'Cable Replacement',
+        'Minor Wiring Checks',
+        'Doorstep Arrival Within 30 Minutes',
       ],
     },
   ];
@@ -98,7 +78,7 @@ export const PricingSection: React.FC = () => {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pricingPackages.map((pkg) => {
             const Icon = pkg.icon;
             return (
