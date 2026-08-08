@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <div className="flex flex-col">
               <span className="text-xl md:text-2xl font-black tracking-tight text-white flex items-center gap-1 font-sans">
-                RIDE <span className="text-blue-500">N</span> REPAIR
+                RIUKA
               </span>
               <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold -mt-1">
                 Doorstep Petrol Bike Care

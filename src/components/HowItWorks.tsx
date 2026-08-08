@@ -7,7 +7,7 @@ export const HowItWorks: React.FC = () => {
       number: '01',
       icon: MousePointerClick,
       title: 'Book Online',
-      desc: 'Select your vehicle type, brand, required doorstep service, and preferred time slot in under 60 seconds.',
+      desc: 'Select your petrol bike brand, required doorstep service, and preferred time slot in under 60 seconds.',
       highlight: '30-Sec Booking',
     },
     {
@@ -20,8 +20,8 @@ export const HowItWorks: React.FC = () => {
     {
       number: '03',
       icon: Wrench,
-      title: 'Vehicle Gets Serviced',
-      desc: 'Get live digital updates & inspection photos on your phone as your vehicle gets serviced right in front of you.',
+      title: 'Petrol Bike Gets Serviced',
+      desc: 'Get live digital updates & inspection photos on your phone as your petrol bike gets serviced right in front of you.',
       highlight: '100% Transparent',
     },
     {
@@ -46,7 +46,7 @@ export const HowItWorks: React.FC = () => {
             How Ride N Repair Works
           </h2>
           <p className="text-sm text-slate-400">
-            Hassle-free doorstep vehicle maintenance without waiting at garages
+            Hassle-free doorstep petrol bike maintenance without waiting at garages
           </p>
         </div>
 

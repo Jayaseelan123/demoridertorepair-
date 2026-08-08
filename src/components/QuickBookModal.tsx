@@ -15,7 +15,7 @@ export const QuickBookModal: React.FC = () => {
 
   const handleSubmit = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    const msg = `Quick Booking Request%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AVehicle: ${encodeURIComponent(vehicleName)}%0ARegistration: ${encodeURIComponent(vehicleNo)}`;
+    const msg = `Quick Booking Request%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ABike: ${encodeURIComponent(vehicleName)}%0ARegistration: ${encodeURIComponent(vehicleNo)}`;
 
     // Open WhatsApp chat for both numbers in new tabs (adds country code +91)
     whatsappNumbers.forEach((n) => {
@@ -61,12 +61,12 @@ export const QuickBookModal: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-xs text-slate-300">Vehicle Name</label>
+              <label className="text-xs text-slate-300">Bike Name</label>
               <input required value={vehicleName} onChange={(e) => setVehicleName(e.target.value)} className="w-full mt-1 px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-sm" />
             </div>
 
             <div>
-              <label className="text-xs text-slate-300">Vehicle No</label>
+              <label className="text-xs text-slate-300">Bike No</label>
               <input required value={vehicleNo} onChange={(e) => setVehicleNo(e.target.value)} className="w-full mt-1 px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-sm" />
             </div>
 

@@ -68,12 +68,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
-              Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-400">Petrol Bike Service</span> At Your Doorstep
+              Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-400">Riuka Petrol Bike Service</span> At Your Doorstep
             </h1>
 
             {/* Subheading */}
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Book verified mechanics with 100% transparent pricing. Get general service, engine tuning, or breakdown assistance for your petrol bike at home or office.
+              Book verified mechanics with 100% transparent pricing. Get general service, engine tuning, or breakdown assistance for your petrol bike from Riuka at home or office.
             </p>
 
             {/* Main CTA Buttons */}

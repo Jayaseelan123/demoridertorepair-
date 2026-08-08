@@ -201,7 +201,7 @@ export const RazorpayModal: React.FC<RazorpayModalProps> = ({
               <div className="text-slate-300 text-center space-y-1 py-1">
                 <p className="font-bold text-white">Pay Cash or UPI To Mechanic</p>
                 <p className="text-[11px] text-slate-400">
-                  You can inspect the vehicle, test drive, and pay after completion.
+                  You can inspect the bike, test ride, and pay after completion.
                 </p>
               </div>
             )}

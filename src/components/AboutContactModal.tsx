@@ -65,7 +65,7 @@ export const AboutContactModal: React.FC<AboutContactModalProps> = ({
               </div>
 
               <p>
-                Founded with a mission to bring complete honesty, speed, and comfort to auto maintenance, Ride N Repair connects vehicle owners directly with background-verified mechanics who arrive right at your driveway with genuine OEM parts and specialized mobile toolkits.
+                Founded with a mission to bring complete honesty, speed, and comfort to petrol bike maintenance, Ride N Repair connects petrol bike owners directly with background-verified mechanics who arrive right at your driveway with genuine OEM parts and specialized mobile toolkits.
               </p>
 
               <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">

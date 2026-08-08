@@ -38,7 +38,7 @@ export const LiveTrackingModal: React.FC = () => {
     { id: 'MECHANIC_ASSIGNED', label: 'Mechanic Assigned', desc: 'Technician confirmed request' },
     { id: 'EN_ROUTE', label: 'En Route To You', desc: 'Mechanic is driving to doorstep' },
     { id: 'ARRIVED', label: 'Arrived At Location', desc: 'Mechanic has reached your parking' },
-    { id: 'INSPECTION', label: 'Vehicle Inspection', desc: '35-point safety check running' },
+    { id: 'INSPECTION', label: 'Bike Inspection', desc: '35-point safety check running' },
     { id: 'IN_PROGRESS', label: 'Service In Progress', desc: 'Executing requested repairs' },
     { id: 'COMPLETED', label: 'Service Completed', desc: '30-day warranty activated' },
   ];
@@ -202,7 +202,7 @@ export const LiveTrackingModal: React.FC = () => {
           {/* Booking Info Box */}
           <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs space-y-2">
             <div className="flex justify-between">
-              <span className="text-slate-400">Vehicle Serviced:</span>
+              <span className="text-slate-400">Bike Serviced:</span>
               <span className="font-bold text-white">
                 {booking.vehicle.brand} {booking.vehicle.model} ({booking.vehicle.registrationNumber})
               </span>

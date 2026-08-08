@@ -24,7 +24,7 @@ export const ReviewsSection: React.FC = () => {
             <span>4.8 / 5 Rated Across 15,000+ Services</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-white">
-            What Vehicle Owners Say
+            What Petrol Bike Owners Say
           </h2>
           <p className="text-sm text-slate-400">
             Real feedback from verified Ride N Repair customers

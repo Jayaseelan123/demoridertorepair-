@@ -380,7 +380,7 @@ export const BookingWizardModal: React.FC = () => {
                 </div>
 
                 <div className="flex justify-between text-slate-300">
-                  <span>Vehicle:</span>
+                  <span>Bike:</span>
                   <span className="font-bold text-white">
                     {selectedBrand} {modelName} ({regNumber})
                   </span>
