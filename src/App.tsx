@@ -5,8 +5,6 @@ import { Footer } from './components/Footer';
 import { LiveTrackingModal } from './components/LiveTrackingModal';
 import { BookingWizardModal } from './components/BookingWizardModal';
 import { QuickBookModal } from './components/QuickBookModal';
-import { MechanicDashboard } from './components/dashboards/MechanicDashboard';
-import { AdminDashboard } from './components/dashboards/AdminDashboard';
 import { HomePage, AboutPage, ServicesPage, PricingPage, ContactPage } from './pages/SitePages';
 import { CheckCircle2 } from 'lucide-react';
 
@@ -61,13 +59,17 @@ function AppContent() {
 
       {role === 'mechanic' && (
         <main className="pt-8">
-          <MechanicDashboard />
+          <div className="container mx-auto px-4 py-16 text-center text-white">
+            <p className="text-sm text-slate-400">Mechanic dashboard is not available.</p>
+          </div>
         </main>
       )}
 
       {role === 'admin' && (
         <main className="pt-8">
-          <AdminDashboard />
+          <div className="container mx-auto px-4 py-16 text-center text-white">
+            <p className="text-sm text-slate-400">Admin dashboard is not available.</p>
+          </div>
         </main>
       )}
 

@@ -5,11 +5,8 @@ import { ServiceCategories } from '../components/ServiceCategories';
 import { BrandShowcase } from '../components/BrandShowcase';
 import { HowItWorks } from '../components/HowItWorks';
 import { WhyChooseUs } from '../components/WhyChooseUs';
-import { PricingSection } from '../components/PricingSection';
 import { ReviewsSection } from '../components/ReviewsSection';
 import { FAQSection } from '../components/FAQSection';
-import { CitiesSection } from '../components/CitiesSection';
-import { UserDashboard } from '../components/dashboards/UserDashboard';
 import { CheckCircle2, Wrench, ShieldCheck, PhoneCall, Mail, MapPin, ArrowRight } from 'lucide-react';
 
 export const HomePage: React.FC = () => (
@@ -19,11 +16,8 @@ export const HomePage: React.FC = () => (
     <BrandShowcase />
     <HowItWorks />
     <WhyChooseUs />
-    <PricingSection />
-    <UserDashboard />
     <ReviewsSection />
     <FAQSection />
-    <CitiesSection />
   </main>
 );
 

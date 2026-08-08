@@ -107,24 +107,31 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Right Action Items intentionally removed to keep header minimal (logo + nav only) */}
 
-          {/* Right Action Items: Book Now on desktop + compact mobile booking */}
-          <div className="hidden lg:flex items-center space-x-3">
+          {/* Right Action Items: Book Now near by Chennai only */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <div className="text-right">
+              <div className="text-[16px] text-blue-300 uppercase tracking-[0.25em] font-bold">Chennai</div>
+              {/* <div className="text-xs text-slate-300">Book Now</div> */}
+            </div>
             <button
               onClick={() => openQuickBooking()}
               className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm tracking-wide shadow-lg shadow-blue-600/30 hover:from-blue-500 hover:to-indigo-500"
             >
-              Book Now
+              Book Now 
             </button>
           </div>
 
           {/* Mobile Right Controls: compact book button + menu toggle */}
           <div className="lg:hidden flex items-center space-x-2">
+            <div className="text-right">
+              <div className="text-[10px] text-blue-300 uppercase tracking-[0.2em] font-semibold">Chennai only</div>
+            </div>
             <button
               onClick={() => openQuickBooking()}
               className="px-3 py-1.5 rounded-lg bg-blue-600 text-white font-bold text-xs"
               aria-label="Book Now"
             >
-              Book
+              Book Now
             </button>
 
             <button

@@ -14,7 +14,7 @@ import {
 
 export const ServiceCategories: React.FC = () => {
   const { servicesList, openBookingWizard } = useApp();
-  const [activeCategory, setActiveCategory] = useState<VehicleType | 'all'>('all');
+  const [activeCategory, setActiveCategory] = useState<VehicleType>('bike');
   const [selectedServiceModal, setSelectedServiceModal] = useState<ServiceItem | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -53,7 +53,7 @@ export const ServiceCategories: React.FC = () => {
               <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
               <input
                 type="text"
-                placeholder="Search services (e.g. engine, chain, brake)..."
+                placeholder="Search petrol bike services..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-xl pl-9 pr-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -61,29 +61,11 @@ export const ServiceCategories: React.FC = () => {
             </div>
 
             {/* Category Filter Pills */}
-            <div className="inline-flex p-1 rounded-xl bg-slate-800/80 border border-slate-700/80">
-              <button
-                onClick={() => setActiveCategory('all')}
-                className={`px-4 py-2 rounded-lg text-xs font-bold transition ${
-                  activeCategory === 'all'
-                    ? 'bg-blue-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                All Services
-              </button>
-              
-              <button
-                onClick={() => setActiveCategory('bike')}
-                className={`px-4 py-2 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 ${
-                  activeCategory === 'bike'
-                    ? 'bg-blue-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <Bike className="w-3.5 h-3.5" />
-                <span>Petrol Bike Services</span>
-              </button>
+            <div className="inline-flex items-center rounded-xl bg-slate-800/80 border border-slate-700/80 px-4 py-2">
+              <Bike className="w-3.5 h-3.5 text-blue-400" />
+              <span className="ml-2 text-xs font-bold text-white uppercase tracking-[0.16em]">
+                Petrol Bike Services Only
+              </span>
             </div>
 
           </div>
@@ -176,25 +158,12 @@ export const ServiceCategories: React.FC = () => {
                   </div>
 
                   {/* Actions */}
-                  <div className="pt-3 border-t border-slate-800/80 flex items-center gap-2">
+                  <div className="pt-3 border-t border-slate-800/80">
                     <button
                       onClick={() => setSelectedServiceModal(service)}
-                      className="flex-1 py-2.5 px-3 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 text-xs font-semibold hover:bg-slate-800 transition"
+                      className="w-full py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 text-xs font-semibold hover:bg-slate-800 transition"
                     >
                       View Details
-                    </button>
-
-                    <button
-                      onClick={() =>
-                        openBookingWizard({
-                          vehicleType: service.category,
-                          serviceId: service.id,
-                        })
-                      }
-                      className="py-2.5 px-4 rounded-xl bg-blue-600 text-white text-xs font-bold hover:bg-blue-500 transition shadow-lg shadow-blue-600/20 flex items-center space-x-1"
-                    >
-                      <span>Book</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
