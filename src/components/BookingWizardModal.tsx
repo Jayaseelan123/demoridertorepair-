@@ -149,7 +149,6 @@ export const BookingWizardModal: React.FC = () => {
               <Wrench className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="font-bold text-sm text-white">Book Doorstep Vehicle Service</h3>
               <p className="text-[11px] text-slate-400">Step {step} of 4 • Fast & Transparent</p>
             </div>
           </div>

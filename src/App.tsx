@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { LiveTrackingModal } from './components/LiveTrackingModal';
 import { BookingWizardModal } from './components/BookingWizardModal';
+import { QuickBookModal } from './components/QuickBookModal';
 import { MechanicDashboard } from './components/dashboards/MechanicDashboard';
 import { AdminDashboard } from './components/dashboards/AdminDashboard';
 import { HomePage, AboutPage, ServicesPage, PricingPage, ContactPage } from './pages/SitePages';
@@ -75,6 +76,7 @@ function AppContent() {
 
       {/* Modals & Overlays */}
       <BookingWizardModal />
+      <QuickBookModal />
 
       {activeTrackingBookingId && <LiveTrackingModal />}
 

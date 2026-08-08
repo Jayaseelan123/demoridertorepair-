@@ -152,6 +152,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     brand?: string;
     serviceId?: string;
   }>({});
+  const [isQuickBookingOpen, setIsQuickBookingOpen] = useState<boolean>(false);
 
   useEffect(() => {
     localStorage.setItem('rnr_user_vehicles', JSON.stringify(userVehicles));
@@ -193,6 +194,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       setBookingPreselect({});
     }
     setIsBookingModalOpen(true);
+  };
+
+  const openQuickBooking = () => {
+    setIsQuickBookingOpen(true);
   };
 
   const createBooking = (bookingData: Partial<ServiceBooking>): ServiceBooking => {
@@ -322,6 +327,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setIsBookingModalOpen,
         bookingPreselect,
         openBookingWizard,
+        isQuickBookingOpen,
+        setIsQuickBookingOpen,
+        openQuickBooking,
         servicesList,
         updateServicePrice,
         toastMessage,

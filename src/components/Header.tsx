@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Wrench, Menu, X } from 'lucide-react';
+import { useApp } from '../context/AppContext';
 
 interface HeaderProps {
   onNavigateSection?: (sectionId: string) => void;
@@ -14,6 +15,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openQuickBooking } = useApp();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -105,8 +107,26 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Right Action Items intentionally removed to keep header minimal (logo + nav only) */}
 
-          {/* Mobile Right Controls: only menu toggle retained */}
-          <div className="lg:hidden flex items-center">
+          {/* Right Action Items: Book Now on desktop + compact mobile booking */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <button
+              onClick={() => openQuickBooking()}
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm tracking-wide shadow-lg shadow-blue-600/30 hover:from-blue-500 hover:to-indigo-500"
+            >
+              Book Now
+            </button>
+          </div>
+
+          {/* Mobile Right Controls: compact book button + menu toggle */}
+          <div className="lg:hidden flex items-center space-x-2">
+            <button
+              onClick={() => openQuickBooking()}
+              className="px-3 py-1.5 rounded-lg bg-blue-600 text-white font-bold text-xs"
+              aria-label="Book Now"
+            >
+              Book
+            </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-slate-300 hover:text-white focus:outline-none"
