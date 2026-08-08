@@ -11,7 +11,7 @@ export const QuickBookModal: React.FC = () => {
 
   if (!isQuickBookingOpen) return null;
 
-  const whatsappNumbers = ['8489770824', '9944907205'];
+  const whatsappNumbers = ['8489770824', '9360496101'];
 
   const handleSubmit = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -70,9 +70,8 @@ export const QuickBookModal: React.FC = () => {
               <input required value={vehicleNo} onChange={(e) => setVehicleNo(e.target.value)} className="w-full mt-1 px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-sm" />
             </div>
 
-            <div className="flex items-center justify-between mt-2">
-              <div className="text-xs text-slate-400">Messages will be opened to these numbers</div>
-              <div className="text-sm font-mono">{whatsappNumbers.join(' + ')}</div>
+            <div className="mt-2 text-sm font-mono text-white text-center">
+              {whatsappNumbers.join(' + ')}
             </div>
 
             <div className="pt-3">
