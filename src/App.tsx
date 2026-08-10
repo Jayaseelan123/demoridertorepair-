@@ -6,7 +6,7 @@ import { LiveTrackingModal } from './components/LiveTrackingModal';
 import { BookingWizardModal } from './components/BookingWizardModal';
 import { QuickBookModal } from './components/QuickBookModal';
 import { HomePage, AboutPage, ServicesPage, PricingPage, ContactPage } from './pages/SitePages';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, BrandWhatsapp } from 'lucide-react';
 
 type PageKey = 'home' | 'about' | 'services' | 'pricing' | 'contact';
 
@@ -35,6 +35,16 @@ function AppContent() {
           <span>{toastMessage}</span>
         </div>
       )}
+
+      {/* WhatsApp Quick Contact Button */}
+      <button
+        type="button"
+        className="fixed bottom-5 left-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-2xl ring-1 ring-emerald-400/30 transition hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+        onClick={() => window.open('https://wa.me/918489770824', '_blank')}
+        aria-label="Open WhatsApp chat"
+      >
+        <BrandWhatsapp className="h-7 w-7" />
+      </button>
 
       {/* Main Sticky Navbar Header */}
       <Header
