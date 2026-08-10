@@ -129,11 +129,7 @@ export const PricingSection: React.FC = () => {
                 </div>
 
                 <button
-                  onClick={() =>
-                    openBookingWizard({
-                      vehicleType: pkg.vehicleType,
-                    })
-                  }
+                  onClick={() => openQuickBooking()}
                   className={`w-full py-3 rounded-xl font-bold text-xs shadow-lg transition flex items-center justify-center space-x-1 ${
                     pkg.popular
                       ? 'bg-blue-600 text-white hover:bg-blue-500 shadow-blue-600/30'

@@ -46,18 +46,20 @@ function AppContent() {
         }}
       />
 
-      {/* Dynamic Role View Switching: Customer Landing vs Mechanic Panel vs Admin Panel */}
-      {role === 'customer' && (
+      {/* Pricing page should be visible even if dashboard roles are selected */}
+      {activePage === 'pricing' && <PricingPage />}
+
+      {/* Dynamic Role View Switching: Customer/Guest Landing vs Mechanic Panel vs Admin Panel */}
+      {activePage !== 'pricing' && role !== 'mechanic' && role !== 'admin' && (
         <>
           {activePage === 'home' && <HomePage />}
           {activePage === 'about' && <AboutPage />}
           {activePage === 'services' && <ServicesPage />}
-          {activePage === 'pricing' && <PricingPage />}
           {activePage === 'contact' && <ContactPage />}
         </>
       )}
 
-      {role === 'mechanic' && (
+      {activePage !== 'pricing' && role === 'mechanic' && (
         <main className="pt-8">
           <div className="container mx-auto px-4 py-16 text-center text-white">
             <p className="text-sm text-slate-400">Mechanic dashboard is not available.</p>

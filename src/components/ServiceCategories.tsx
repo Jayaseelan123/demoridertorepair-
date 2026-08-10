@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 
 export const ServiceCategories: React.FC = () => {
-  const { servicesList, openBookingWizard } = useApp();
+  const { servicesList, openQuickBooking } = useApp();
   const [activeCategory, setActiveCategory] = useState<VehicleType>('bike');
   const [selectedServiceModal, setSelectedServiceModal] = useState<ServiceItem | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -238,12 +238,8 @@ export const ServiceCategories: React.FC = () => {
               </button>
               <button
                 onClick={() => {
-                  const s = selectedServiceModal;
                   setSelectedServiceModal(null);
-                  openBookingWizard({
-                    vehicleType: s.category,
-                    serviceId: s.id,
-                  });
+                  openQuickBooking();
                 }}
                 className="w-2/3 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-xs shadow-lg shadow-blue-600/30 hover:from-blue-500 hover:to-indigo-500"
               >

@@ -5,6 +5,7 @@ import { ServiceCategories } from '../components/ServiceCategories';
 import { BrandShowcase } from '../components/BrandShowcase';
 import { HowItWorks } from '../components/HowItWorks';
 import { WhyChooseUs } from '../components/WhyChooseUs';
+import { PricingSection } from '../components/PricingSection';
 import { ReviewsSection } from '../components/ReviewsSection';
 import { FAQSection } from '../components/FAQSection';
 import { CheckCircle2, Wrench, ShieldCheck, PhoneCall, Mail, MapPin, ArrowRight } from 'lucide-react';
@@ -22,7 +23,7 @@ export const HomePage: React.FC = () => (
 );
 
 export const AboutPage: React.FC = () => {
-  const { openBookingWizard } = useApp();
+  const { openQuickBooking } = useApp();
 
   const highlights = [
     'Doorstep petrol bike servicing with transparent pricing and no hidden charges.',
@@ -48,7 +49,7 @@ export const AboutPage: React.FC = () => {
               </p>
             </div>
             <button
-              onClick={() => openBookingWizard({ vehicleType: 'bike' })}
+              onClick={() => openQuickBooking()}
               className="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
             >
               Book Your Service
@@ -118,7 +119,7 @@ export const PricingPage: React.FC = () => (
 );
 
 export const ContactPage: React.FC = () => {
-  const { openBookingWizard } = useApp();
+  const { openQuickBooking } = useApp();
   const [submitted, setSubmitted] = useState(false);
 
   return (
@@ -173,7 +174,7 @@ export const ContactPage: React.FC = () => {
                   Our support team will contact you shortly with the next steps for your bike service request.
                 </p>
                 <button
-                  onClick={() => openBookingWizard({ vehicleType: 'bike' })}
+                  onClick={() => openQuickBooking()}
                   className="rounded-2xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
                 >
                   Book Service Now

@@ -17,7 +17,7 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
-  const { openBookingWizard } = useApp();
+  const { openQuickBooking } = useApp();
 
   return (
     <footer className="bg-[#030304] text-slate-400 text-xs border-t border-white/10 pt-16 pb-12">
@@ -71,9 +71,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
           <div className="space-y-3">
             <h4 className="text-white font-bold text-sm uppercase tracking-wider">Services</h4>
             <ul className="space-y-2 text-slate-300">
-              <li><button onClick={() => { onNavigatePage?.('services'); openBookingWizard({ vehicleType: 'bike' }); }} className="hover:text-blue-400 transition text-left">Petrol Bike General Service</button></li>
-              <li><button onClick={() => { onNavigatePage?.('services'); openBookingWizard({ vehicleType: 'bike' }); }} className="hover:text-blue-400 transition text-left">Engine Tuning & Pickup Care</button></li>
-              <li><button onClick={() => { onNavigatePage?.('services'); openBookingWizard({ vehicleType: 'bike' }); }} className="hover:text-blue-400 transition text-left">Doorstep Breakdown Assistance</button></li>
+              <li><button onClick={() => { onNavigatePage?.('services'); openQuickBooking(); }} className="hover:text-blue-400 transition text-left">Petrol Bike General Service</button></li>
+              <li><button onClick={() => { onNavigatePage?.('services'); openQuickBooking(); }} className="hover:text-blue-400 transition text-left">Engine Tuning & Pickup Care</button></li>
+              <li><button onClick={() => { onNavigatePage?.('services'); openQuickBooking(); }} className="hover:text-blue-400 transition text-left">Doorstep Breakdown Assistance</button></li>
             </ul>
           </div>
 

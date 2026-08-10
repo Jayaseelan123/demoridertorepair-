@@ -4,7 +4,7 @@ import { VEHICLE_BRANDS } from '../data/mockData';
 import { Bike, ChevronRight, ShieldCheck } from 'lucide-react';
 
 export const BrandShowcase: React.FC = () => {
-  const { openBookingWizard } = useApp();
+  const { openQuickBooking } = useApp();
 
   const brands = VEHICLE_BRANDS.filter((b) => b.type === 'bike');
 
@@ -13,7 +13,7 @@ export const BrandShowcase: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div className="flex flex-col items-center text-center mb-10 gap-4">
           <div>
             <div className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-1">
               Supported Manufacturers
@@ -32,12 +32,7 @@ export const BrandShowcase: React.FC = () => {
           {brands.map((brand) => (
             <div
               key={brand.id}
-              onClick={() =>
-                openBookingWizard({
-                  vehicleType: 'bike',
-                  brand: brand.name,
-                })
-              }
+              onClick={() => openQuickBooking()}
               className="bg-[#0a0a0c]/80 border border-white/10 rounded-2xl p-5 hover:border-blue-500/40 hover:bg-[#0e0e11] transition duration-300 cursor-pointer group flex flex-col justify-between space-y-4 shadow-lg backdrop-blur-md"
             >
               <div className="flex items-center justify-between">
